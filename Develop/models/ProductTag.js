@@ -9,13 +9,24 @@ ProductTag.init(
     // define columns
     id: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
     },
     product_id:{
       type: DataTypes.INTEGER,
-      allowNull:false,
+      allowNull: false,
       defaultValue:10,
       validate:{isNumeric: true}
+    },
+    
+    tag_id: {
+      type: DataTypes.INTEGER,
+      references:{
+        model:'tag',
+      key: 'id'
+      }
+  
     }
   },
   {
